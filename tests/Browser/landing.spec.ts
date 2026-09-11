@@ -1,6 +1,12 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Sí, tengo 18 años o más' }).click();
+    await expect(page.locator('#app')).toBeVisible();
+});
+
 test('responsive layout, portal navigation and accessibility', async ({ page }) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));

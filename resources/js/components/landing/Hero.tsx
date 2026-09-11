@@ -1,11 +1,24 @@
 import { Link } from '@inertiajs/react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { applyUrl, intranetUrl } from '../../config/modules';
 import MetalBackground from './MetalBackground';
 
 export default function Hero() {
+    const [copyVisible, setCopyVisible] = useState(false);
     const content = useRef<HTMLDivElement>(null);
     const section = useRef<HTMLElement>(null);
+    useEffect(() => {
+        // The hero only mounts after age confirmation. Wait for a new interaction.
+        const events = ['pointermove', 'pointerdown', 'keydown', 'wheel'] as const;
+        const cleanup = () => events.forEach((event) => window.removeEventListener(event, reveal));
+        const reveal = (event: Event) => {
+            if (!event.isTrusted) return;
+            setCopyVisible(true);
+            cleanup();
+        };
+        events.forEach((event) => window.addEventListener(event, reveal, { passive: true }));
+        return cleanup;
+    }, []);
     useEffect(() => {
         const media = window.matchMedia('(prefers-reduced-motion: reduce)');
         let frame = 0;
@@ -29,6 +42,11 @@ export default function Hero() {
             <h1 className="hero-logo">
                 <img src="/assets/LOGO.svg" alt="VELVET" width="1920" height="1080" fetchPriority="high" decoding="async" />
             </h1>
+            <div className={`hero-copy mx-auto mt-6 max-w-xl text-center sm:mt-8${copyVisible ? ' hero-copy-visible' : ''}`}>
+                <p className="text-base font-light tracking-wide text-neutral-200 sm:text-xl">Un estudio webcam diferente.</p>
+                <p className="mt-3 text-xs leading-6 text-neutral-400 sm:text-sm">The Velvet Studio, plataforma de streaming para adultos.<br />Una identidad propia. Una nueva forma de conectar.</p>
+                <p className="micro mt-4 text-neutral-400">EXCLUSIVAMENTE PARA MAYORES DE 18 AÑOS</p>
+            </div>
            
         </div>
         <div className="shell absolute inset-x-0 bottom-9 z-10 flex items-end justify-between">

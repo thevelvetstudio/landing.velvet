@@ -17,6 +17,7 @@ class PublicPagesTest extends TestCase
 
     public function test_client_navigation_receives_inertia_json(): void
     {
+        $this->withCookie('velvet_age', 'confirmed');
         foreach (['/' => 'Landing', '/intranet' => 'Intranet', '/aplicar' => 'Apply', '/app' => 'App', '/finance' => 'Finance', '/master' => 'Master'] as $url => $component) {
             $this->get($url, ['X-Inertia' => 'true', 'X-Inertia-Version' => app(Middleware::class)->version(request()) ?? ''])
                 ->assertOk()->assertHeader('X-Inertia', 'true')->assertJsonPath('component', $component);
