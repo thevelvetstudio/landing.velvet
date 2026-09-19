@@ -14,9 +14,9 @@ export default function MetalBackground() {
     return <div aria-hidden="true" className="hero-metal pointer-events-none absolute inset-0">
         {!reducedMotion && <Suspense fallback={null}>
             <MoltenMetal
-                color1="#300a13"
-                color2="#d6263b"
-                color3="#f5d9dd"
+                color1="#3a0052"
+                color2="#b400ff"
+                color3="#ffffff"
                 speed={0.18}
                 scale={3.5}
                 detail={3}

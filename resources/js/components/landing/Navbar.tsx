@@ -13,8 +13,8 @@ export default function Navbar() {
     return <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${scrolled ? 'border-white/10 bg-[#050505]/90 backdrop-blur-xl' : 'border-transparent'}`}>
         <div className="shell flex h-22 items-center justify-between">
             <Link href={homeUrl} aria-label="VELVET home" className="flex min-h-11 shrink-0 items-center">
-                <span className="relative block aspect-[1920/520] w-36 overflow-hidden sm:w-44">
-                    <img src="/assets/LOGO.svg" alt="VELVET" width="1920" height="1080" className="absolute left-0 top-[-53.8462%] h-auto w-full" />
+                <span className="relative block aspect-[860.46/221.35] w-36 sm:w-44">
+                    <img src="/assets/LOGO.svg" alt="VELVET" width="860" height="221" className="block h-auto w-full" />
                 </span>
             </Link>
         </div>
