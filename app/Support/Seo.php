@@ -36,7 +36,7 @@ class Seo
                 '@graph' => [
                     [
                         '@type' => 'Organization', '@id' => $base.'/#organization', 'name' => config('seo.name'),
-                        'url' => $base.'/', 'logo' => $base.'/assets/LOGO.svg', 'description' => $description,
+                        'url' => $base.'/', 'logo' => $base.'/assets/LOGO.svg?v=2', 'description' => $description,
                         'brand' => ['@type' => 'Brand', 'name' => 'VELVET'],
                         'knowsAbout' => ['estudios webcam', 'streaming para adultos', 'plataformas digitales para adultos'],
                     ],

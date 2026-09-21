@@ -40,7 +40,7 @@ export default function Hero() {
         <div ref={content} className="relative z-10 w-full px-6 pb-4 text-center">
 
             <h1 className="hero-logo">
-                <img src="/assets/LOGO.svg" alt="VELVET" width="860" height="221" fetchPriority="high" decoding="async" />
+                <img src="/assets/LOGO.svg?v=2" alt="VELVET" width="860" height="221" fetchPriority="high" decoding="async" />
             </h1>
             <div className={`hero-copy mx-auto mt-6 max-w-xl text-center sm:mt-8${copyVisible ? ' hero-copy-visible' : ''}`}>
                 <p className="text-base font-light tracking-wide text-neutral-200 sm:text-xl">Un estudio webcam diferente.</p>

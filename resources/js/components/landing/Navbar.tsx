@@ -14,7 +14,7 @@ export default function Navbar() {
         <div className="shell flex h-22 items-center justify-between">
             <Link href={homeUrl} aria-label="VELVET home" className="flex min-h-11 shrink-0 items-center">
                 <span className="relative block aspect-[860.46/221.35] w-36 sm:w-44">
-                    <img src="/assets/LOGO.svg" alt="VELVET" width="860" height="221" className="block h-auto w-full" />
+                    <img src="/assets/LOGO.svg?v=2" alt="VELVET" width="860" height="221" className="block h-auto w-full" />
                 </span>
             </Link>
         </div>

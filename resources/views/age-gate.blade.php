@@ -1,7 +1,7 @@
 @php($denied = request()->cookie('velvet_age') === 'denied')
 <main class="age-gate" aria-labelledby="age-title">
     <section class="age-gate-panel">
-        <div class="age-gate-logo"><img src="/assets/LOGO.svg" width="1920" height="1080" alt="The Velvet Studio"></div>
+        <div class="age-gate-logo"><img src="/assets/LOGO.svg?v=2" width="1920" height="1080" alt="The Velvet Studio"></div>
         <p class="age-gate-eyebrow">ACCESO EXCLUSIVO PARA ADULTOS</p>
         <h1 id="age-title">{{ $denied ? 'Acceso no permitido' : '¿Tienes 18 años o más?' }}</h1>
         @if ($denied)
