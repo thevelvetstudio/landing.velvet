@@ -25,16 +25,34 @@ class Seo
             'title' => $title,
             'description' => $description,
             'canonical' => $canonical,
-            'robots' => $home && config('seo.indexable') ? 'index, follow, max-image-preview:large' : 'noindex, follow',
+            'robots' => $home && config('seo.indexable') ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' : 'noindex, follow',
             'name' => config('seo.name'),
+            'locale' => config('seo.locale'),
+            'language' => config('seo.language'),
             'image' => $base.config('seo.image'),
             'explicit' => in_array($path, config('seo.explicit_paths'), true),
             'schema' => $home ? [
                 '@context' => 'https://schema.org',
                 '@graph' => [
-                    ['@type' => 'Organization', '@id' => $base.'/#organization', 'name' => config('seo.name'), 'url' => $base.'/', 'logo' => $base.'/assets/LOGO.svg', 'description' => $description],
-                    ['@type' => 'WebSite', '@id' => $base.'/#website', 'url' => $base.'/', 'name' => config('seo.name'), 'inLanguage' => 'es', 'publisher' => ['@id' => $base.'/#organization']],
-                    ['@type' => 'WebPage', '@id' => $base.'/#webpage', 'url' => $canonical, 'name' => $title, 'description' => $description, 'inLanguage' => 'es', 'isPartOf' => ['@id' => $base.'/#website'], 'audience' => ['@type' => 'PeopleAudience', 'suggestedMinAge' => 18]],
+                    [
+                        '@type' => 'Organization', '@id' => $base.'/#organization', 'name' => config('seo.name'),
+                        'url' => $base.'/', 'logo' => $base.'/assets/LOGO.svg', 'description' => $description,
+                        'brand' => ['@type' => 'Brand', 'name' => 'VELVET'],
+                        'knowsAbout' => ['estudios webcam', 'streaming para adultos', 'plataformas digitales para adultos'],
+                    ],
+                    [
+                        '@type' => 'WebSite', '@id' => $base.'/#website', 'url' => $base.'/',
+                        'name' => config('seo.name'), 'description' => config('seo.description'),
+                        'inLanguage' => config('seo.language'), 'publisher' => ['@id' => $base.'/#organization'],
+                    ],
+                    [
+                        '@type' => 'WebPage', '@id' => $base.'/#webpage', 'url' => $canonical,
+                        'name' => $title, 'description' => $description, 'inLanguage' => config('seo.language'),
+                        'isPartOf' => ['@id' => $base.'/#website'], 'about' => ['@id' => $base.'/#organization'],
+                        'mainEntity' => ['@id' => $base.'/#organization'],
+                        'keywords' => 'The Velvet Studio, estudio webcam, streaming para adultos, VELVET',
+                        'audience' => ['@type' => 'PeopleAudience', 'suggestedMinAge' => 18],
+                    ],
                 ],
             ] : null,
         ];

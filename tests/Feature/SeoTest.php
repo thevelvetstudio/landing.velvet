@@ -14,7 +14,7 @@ class SeoTest extends TestCase
             ->assertSee('lang="es"', false)
             ->assertSee('<title data-inertia="">'.config('seo.title').'</title>', false)
             ->assertSee('href="https://thevelvetstudio.co/"', false)
-            ->assertSee('content="index, follow, max-image-preview:large"', false)
+            ->assertSee('content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"', false)
             ->assertSee('https://thevelvetstudio.co/assets/og-velvet.png', false)
             ->assertDontSee('name="rating"', false);
         preg_match('/<script data-inertia="schema" type="application\/ld\+json">(.*?)<\/script>/s', $response->getContent(), $match);

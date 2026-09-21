@@ -16,7 +16,7 @@ export default function MetalBackground() {
             <MoltenMetal
                 color1="#3a0052"
                 color2="#b400ff"
-                color3="#ffffff"
+                color3="#f1d7ff"
                 speed={0.18}
                 scale={3.5}
                 detail={3}

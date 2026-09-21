@@ -6,6 +6,8 @@ type SeoData = {
     canonical: string;
     robots: string;
     name: string;
+    locale: string;
+    language: string;
     image: string;
     explicit: boolean;
     schema: Record<string, unknown> | null;
@@ -17,9 +19,12 @@ export default function Seo() {
         <meta head-key="description" name="description" content={seo.description} />
         <meta head-key="robots" name="robots" content={seo.robots} />
         <link head-key="canonical" rel="canonical" href={seo.canonical} />
+        <meta head-key="language" name="language" content={seo.language} />
+        <link head-key="alternate-es" rel="alternate" hrefLang={seo.language} href={seo.canonical} />
+        <link head-key="alternate-default" rel="alternate" hrefLang="x-default" href={seo.canonical} />
         <meta head-key="og:type" property="og:type" content="website" />
         <meta head-key="og:site_name" property="og:site_name" content={seo.name} />
-        <meta head-key="og:locale" property="og:locale" content="es_CO" />
+        <meta head-key="og:locale" property="og:locale" content={seo.locale} />
         <meta head-key="og:title" property="og:title" content={seo.title} />
         <meta head-key="og:description" property="og:description" content={seo.description} />
         <meta head-key="og:url" property="og:url" content={seo.canonical} />

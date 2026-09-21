@@ -7,6 +7,9 @@
         <meta data-inertia="description" name="description" content="{{ $seo['description'] }}">
         <meta data-inertia="robots" name="robots" content="{{ $seo['robots'] }}">
         <link data-inertia="canonical" rel="canonical" href="{{ $seo['canonical'] }}">
+        <meta name="language" content="{{ $seo['language'] }}">
+        <link data-inertia="alternate-es" rel="alternate" hreflang="{{ $seo['language'] }}" href="{{ $seo['canonical'] }}">
+        <link data-inertia="alternate-default" rel="alternate" hreflang="x-default" href="{{ $seo['canonical'] }}">
         @foreach (['type' => 'website', 'site_name' => $seo['name'], 'locale' => 'es_CO', 'title' => $seo['title'], 'description' => $seo['description'], 'url' => $seo['canonical'], 'image' => $seo['image'], 'image:width' => '1200', 'image:height' => '630', 'image:alt' => 'The Velvet Studio — Un estudio webcam diferente'] as $key => $value)
             <meta data-inertia="og:{{ $key }}" property="og:{{ $key }}" content="{{ $value }}">
         @endforeach
