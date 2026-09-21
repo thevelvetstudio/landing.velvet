@@ -51,7 +51,7 @@ export default function Hero() {
         </div>
         <div className="shell absolute inset-x-0 bottom-9 z-10 flex items-end justify-between">
             <Link href={intranetUrl} className="micro flex min-h-11 items-center text-neutral-400 uppercase transition-colors hover:text-white">Intranet</Link>
-            <Link href={applyUrl} className="group flex min-h-11 items-center gap-5 text-[10px] tracking-[0.19em] text-neutral-400 uppercase transition-colors hover:text-white">Aplicar ahora <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-base transition-transform group-hover:translate-x-1">&rarr;</span></Link>
+            <a href={applyUrl} className="group flex min-h-11 items-center gap-5 text-[10px] tracking-[0.19em] text-neutral-400 uppercase transition-colors hover:text-white">Aplicar ahora <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-base transition-transform group-hover:translate-x-1">&rarr;</span></a>
         </div>
     </section>;
 }

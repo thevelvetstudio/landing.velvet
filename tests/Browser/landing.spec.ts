@@ -18,7 +18,7 @@ test('responsive layout, portal navigation and accessibility', async ({ page }) 
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
         await expect(page.locator('.portal')).toHaveCount(0);
         await page.getByRole('link', { name: 'Aplicar ahora' }).click();
-        await expect(page).toHaveURL('https://app.thevelvetstudio.co/');
+        await expect(page).toHaveURL('https://app.thevelvetstudio.co/apply');
         await page.goBack();
         await page.getByRole('link', { name: 'Intranet', exact: true }).click();
         await expect(page).toHaveURL(/\/intranet$/);
@@ -34,7 +34,7 @@ test('responsive layout, portal navigation and accessibility', async ({ page }) 
             expect(results.violations).toEqual([]);
         }
     }
-    await expect(page.getByRole('link', { name: 'Enter App', exact: true })).toHaveAttribute('href', 'https://app.thevelvetstudio.co/');
+    await expect(page.getByRole('link', { name: 'Enter App', exact: true })).toHaveAttribute('href', 'https://app.thevelvetstudio.co/apply');
     await expect(page.getByRole('link', { name: 'Enter Finance', exact: true })).toHaveAttribute('href', 'https://finance.thevelvetstudio.co/');
     for (const name of ['Master']) {
         await page.goto('/intranet');
@@ -58,5 +58,5 @@ test('mobile navigation, keyboard and reduced motion', async ({ page }) => {
     await expect(page.getByRole('banner').getByRole('link')).toHaveCount(1);
     await page.getByRole('link', { name: 'Intranet', exact: true }).click();
     await expect(page.getByRole('link', { name: 'Enter Finance' })).toHaveAttribute('href', 'https://finance.thevelvetstudio.co/');
-    await expect(page.getByRole('link', { name: 'Enter App', exact: true })).toHaveAttribute('href', 'https://app.thevelvetstudio.co/');
+    await expect(page.getByRole('link', { name: 'Enter App', exact: true })).toHaveAttribute('href', 'https://app.thevelvetstudio.co/apply');
 });
